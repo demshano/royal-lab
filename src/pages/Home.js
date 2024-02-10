@@ -1,6 +1,34 @@
-import { ImageSlider, ImageCard } from "../components";
+import { useState } from "react";
+import {
+  ImageSlider,
+  ImageCard,
+  ImageCard2,
+  ImageContent,
+} from "../components";
 import { Link } from "react-router-dom";
 export const Home = () => {
+  // State to keep track of the clicked card
+  const [clickedCard, setClickedCard] = useState(null);
+
+  // Function to handle card click
+  const handleCardClick = (text) => {
+    setClickedCard(text);
+    console.log("hey");
+  };
+
+  //   // Function to render component based on clicked card
+  //   const renderComponent = () => {
+  //     switch (clickedCard) {
+  //       case 'Chemical Pathology':
+  //         return <ImageContent testName='Chemical Pathology' content='Chemicalhrjfgefuyfcgefyefefefurdhebcfeu'/>;
+  //       case 'Haematology':
+  //         return <ImageContent testName='Haematology' content='Haematologyhrjfgefuyfcgefyefefefurdhebcfeu'/>;
+  //       // Add more cases for other card texts as needed
+  //       default:
+  //         return null;
+  //     }
+  //   };
+
   return (
     <div>
       <ImageSlider className="bg-green" />
@@ -21,6 +49,7 @@ export const Home = () => {
             color="bg-green-600"
           />
         </Link>
+
         <Link to="accreditation">
           <ImageCard
             imageSrc="report.png"
@@ -28,6 +57,7 @@ export const Home = () => {
             color="bg-green-500"
           />
         </Link>
+
         <Link to="lab_network">
           <ImageCard
             imageSrc="location.png"
@@ -59,12 +89,93 @@ export const Home = () => {
         </div>
       </div>
 
-      <div>
-        
+      <div className="flex justify-center items-center h-screen">
+        <div className="relative">
+          <img
+            src="image1_1.jpg"
+            alt="image1"
+            className="w-full h-auto rounded-lg"
+          />
+
+          <div className="absolute top-0 left-0 p-4 text-white">
+            <h1 className="text-4xl font-bold">PATHOLOGY SERVICES</h1>
+          </div>
+
+          <div className="absolute top-0 left-0 w-full h-full flex flex-wrap justify-center items-center">
+            <div onClick={() => handleCardClick("Chemical Pathology")}>
+              <ImageCard2
+                imageSrc="clinical-icon.png"
+                text="Chemical Pathology"
+                borderColor="border-green-700"
+              />
+            </div>
+
+            <div onClick={() => handleCardClick("Haematology")}>
+              <ImageCard2
+                imageSrc="test-tube.png"
+                text="Haematology"
+                borderColor="border-green-700"
+              />
+            </div>
+
+            <div onClick={() => handleCardClick("Flow Cytometry")}>
+              <ImageCard2
+                imageSrc="flow.png"
+                text="Flow Cytometry"
+                borderColor="border-green-700"
+              />
+            </div>
+
+            <div onClick={() => handleCardClick("Histopathology")}>
+              <ImageCard2
+                imageSrc="histopathology.png"
+                text="Histopathology"
+                borderColor="border-green-700"
+              />
+            </div>
+
+            <div onClick={() => handleCardClick("Microbiology")}>
+              <ImageCard2
+                imageSrc="microbiology-icon.png"
+                text="Microbiology"
+                borderColor="border-green-700"
+              />
+            </div>
+
+            <div onClick={() => handleCardClick("Molecular Diagnostics")}>
+              <ImageCard2
+                imageSrc="moleculer.png"
+                text="Molecular Diagnostics"
+                borderColor="border-green-700"
+              />
+            </div>
+
+            <div onClick={() => handleCardClick("Cytogenetics")}>
+              <ImageCard2
+                imageSrc="cytogenetics.png"
+                text="Cytogenetics"
+                borderColor="border-green-700"
+              />
+            </div>
+          </div>
+
+          <div>{clickedCard && <ImageContent testName={clickedCard} />}</div>
+        </div>
       </div>
 
+      <div>
+        <div className="flex justify-center item-center">
+          <p className="text-5xl font-bold text-green-800">
+            Mobile Test Services
+          </p>
+        </div>
 
+        <div className="bg-green-800 flex w-full h-[400px] mt-8">
+            
+        </div>
+      </div>
 
+      {/* last line */}
     </div>
   );
 };

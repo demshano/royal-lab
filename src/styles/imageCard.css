@@ -10,4 +10,18 @@
       transform: rotateY(360deg);
     }
   }
+
+.hover-move {
+    animation: moveAnimation 3s linear infinite;
+  }
+  
+  @keyframes moveAnimation {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px); /* Adjust the distance you want the image to move */
+    }
+  }
+  
   
