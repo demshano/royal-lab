@@ -5,6 +5,7 @@ export const ImageCard2 = ({ imageSrc, text, borderColor }) => {
     <div
       className={`w-[170px] h-[170px] ml-8 rounded-lg border ${borderColor} hover:border-4 overflow-hidden shadow-xl shadow-slate-300 hover:shadow-slate-500 flex flex-col items-center justify-center transition-transform duration-300 hover:shadow-lg hover:scale-105`}
     >
+        {/*eslint-disable-next-line  */}
       <img
         src={imageSrc}
         alt="image"
