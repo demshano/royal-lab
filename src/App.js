@@ -14,7 +14,9 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
         <Route path="accreditation" element={<Accreditation />} />
+        //eslint-disable-next-line
         <Route path="lab_network" element={<Lab_network />} />
+        //eslint-disable-next-line
         <Route path="online_test" element={<Online_test />} />
       </Routes>
 
