@@ -33,7 +33,7 @@ export const Home = () => {
     <div>
       <ImageSlider className="bg-green" />
 
-      <div className="flex justify-around mt-20">
+      <div className="flex flex-wrap justify-around mt-20 md:flex-row md:justify-center lg:flex-row lg:justify-around">
         <Link to="test">
           <ImageCard
             imageSrc="test-tube.png"
@@ -89,20 +89,29 @@ export const Home = () => {
         </div>
       </div>
 
-      <div className="flex justify-center items-center h-screen">
-        <div className="relative">
-          <img
+      {/* ----------------------------- */}
+
+      <div className="flex justify-center items-center mt-8  bg-gradient-to-r from-green-500 to-blue-500">
+        <div className="relative p-36">
+          {/* <img
             src="image1_1.jpg"
             alt="image1"
-            className="w-full h-auto rounded-lg"
-          />
+            className="w-full h-auto rounded-lg lg:w-[1368px] lg:h-[713px]"
+          /> */}
 
-          <div className="absolute top-0 left-0 p-4 text-white">
-            <h1 className="text-4xl font-bold">PATHOLOGY SERVICES</h1>
+          {/* <div class="h-14 bg-gradient-to-r from-green-500 to-blue-500"></div> */}
+
+          <div className=" flex ml-[-80px] mt-[-110px] p-4 text-white">
+            <h1 className="text-4xl  font-bold">PATHOLOGY SERVICES</h1>
           </div>
 
-          <div className="absolute top-0 left-0 w-full h-full flex flex-wrap justify-center items-center">
-            <div onClick={() => handleCardClick("Chemical Pathology")}>
+          {/* -------------------------------components start */}
+
+          <div className="w-full h-full col-span-4 sm:col-span-2 mt-8 flex flex-wrap  justify-center items-center">
+            <div
+              className="mt-4"
+              onClick={() => handleCardClick("Chemical Pathology")}
+            >
               <ImageCard2
                 imageSrc="clinical-icon.png"
                 text="Chemical Pathology"
@@ -110,7 +119,10 @@ export const Home = () => {
               />
             </div>
 
-            <div onClick={() => handleCardClick("Haematology")}>
+            <div
+              className="mt-4"
+              onClick={() => handleCardClick("Haematology")}
+            >
               <ImageCard2
                 imageSrc="test-tube.png"
                 text="Haematology"
@@ -118,7 +130,10 @@ export const Home = () => {
               />
             </div>
 
-            <div onClick={() => handleCardClick("Flow Cytometry")}>
+            <div
+              className="mt-4"
+              onClick={() => handleCardClick("Flow Cytometry")}
+            >
               <ImageCard2
                 imageSrc="flow.png"
                 text="Flow Cytometry"
@@ -126,7 +141,10 @@ export const Home = () => {
               />
             </div>
 
-            <div onClick={() => handleCardClick("Histopathology")}>
+            <div
+              className="mt-4"
+              onClick={() => handleCardClick("Histopathology")}
+            >
               <ImageCard2
                 imageSrc="histopathology.png"
                 text="Histopathology"
@@ -134,7 +152,10 @@ export const Home = () => {
               />
             </div>
 
-            <div onClick={() => handleCardClick("Microbiology")}>
+            <div
+              className="mt-4"
+              onClick={() => handleCardClick("Microbiology")}
+            >
               <ImageCard2
                 imageSrc="microbiology-icon.png"
                 text="Microbiology"
@@ -142,7 +163,10 @@ export const Home = () => {
               />
             </div>
 
-            <div onClick={() => handleCardClick("Molecular Diagnostics")}>
+            <div
+              className="mt-4"
+              onClick={() => handleCardClick("Molecular Diagnostics")}
+            >
               <ImageCard2
                 imageSrc="moleculer.png"
                 text="Molecular Diagnostics"
@@ -150,7 +174,10 @@ export const Home = () => {
               />
             </div>
 
-            <div onClick={() => handleCardClick("Cytogenetics")}>
+            <div
+              className="mt-4"
+              onClick={() => handleCardClick("Cytogenetics")}
+            >
               <ImageCard2
                 imageSrc="cytogenetics.png"
                 text="Cytogenetics"
@@ -158,10 +185,15 @@ export const Home = () => {
               />
             </div>
           </div>
+          {/* ----------------components end */}
 
-          <div>{clickedCard && <ImageContent testName={clickedCard} />}</div>
+          <div className="py-8">
+            {clickedCard && <ImageContent testName={clickedCard} />}
+          </div>
         </div>
       </div>
+
+      {/* ----------------- */}
 
       <div>
         <div className="flex justify-center item-center">
@@ -170,10 +202,10 @@ export const Home = () => {
           </p>
         </div>
 
-        <div className="bg-green-800 flex w-full h-[400px] mt-8">
-            
-        </div>
+        <div className="bg-green-800 flex w-full h-[400px] mt-8"></div>
       </div>
+
+      <div class="h-14 bg-gradient-to-r from-green-500 to-blue-500"></div>
 
       {/* last line */}
     </div>

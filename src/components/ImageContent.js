@@ -3,17 +3,14 @@ import React from "react";
 export const ImageContent = ({ testName }) => {
   // Define content for each type of test
   const testContent = {
-    "Chemical Pathology": "Content for Chemical Pathology test...",
+    "Chemical Pathology":
+      "Content for Chemical Pathology test...gjrhoi",
     Haematology: "Content for Haematology test...",
     Microbiology: "Content for Microbiology test...",
-    "Flow Cytometry":"content here",
-    Histopathology:"content here",
-    "Molecular Diagnostics":"content here",
-    Cytogenetics:"content here",
-    
-
-
-
+    "Flow Cytometry": "content here",
+    Histopathology: "content here",
+    "Molecular Diagnostics": "content here",
+    Cytogenetics: "content here",
 
     // Add content for other types of tests as needed
   };
