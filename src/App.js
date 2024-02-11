@@ -1,7 +1,7 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, } from "react-router-dom";
 import { Home, Test, About, Careers, Contact, Accreditation, Lab_network, Online_test } from "./pages";
-import { Header, Footer } from "./components";
+import { Header, Footer, ImageContent } from "./components";
 function App() {
   return (
     <main>
@@ -18,6 +18,7 @@ function App() {
         <Route path="lab_network" element={<Lab_network />} />
         {/* eslint-disable-next-line */}
         <Route path="online_test" element={<Online_test />} />
+        <Route path="/image-content/:testName" component={ImageContent} />
       </Routes>
         
         

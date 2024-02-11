@@ -1,6 +1,7 @@
-import React from "react";
+import { useParams } from 'react-router-dom';
 
 export const ImageContent = ({ testName }) => {
+    //   testName  = useParams();
   // Define content for each type of test
   const testContent = {
     "Chemical Pathology":

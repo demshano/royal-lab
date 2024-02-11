@@ -1,18 +1,20 @@
-import { useState } from "react";
-import {
-  ImageSlider,
-  ImageCard,
-  ImageCard2,
-  ImageContent,
-} from "../components";
+import { useState, useRef } from "react";
+import { ImageSlider, ImageCard,ImageCard2,ImageContent,} from "../components";
 import { Link } from "react-router-dom";
 export const Home = () => {
   // State to keep track of the clicked card
   const [clickedCard, setClickedCard] = useState(null);
 
+  const imageContentRef = useRef(null);
+
+  const scrollToImageContent = () => {
+    imageContentRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
   // Function to handle card click
   const handleCardClick = (text) => {
     setClickedCard(text);
+    scrollToImageContent();
     console.log("hey");
   };
 
@@ -102,21 +104,26 @@ export const Home = () => {
           {/* <div class="h-14 bg-gradient-to-r from-green-500 to-blue-500"></div> */}
 
           <div className=" flex ml-[-80px] mt-[-110px] p-4 text-white">
-            <h1 className="text-4xl  font-bold">PATHOLOGY SERVICES</h1>
+            <h1 className="text-4xl text-center sm:text-left   font-bold">
+              PATHOLOGY SERVICES
+            </h1>
           </div>
 
           {/* -------------------------------components start */}
 
-          <div className="w-full h-full col-span-4 sm:col-span-2 mt-8 flex flex-wrap  justify-center items-center">
+          <div className="w-full h-full  mt-8 flex flex-wrap  justify-center items-center">
             <div
-              className="mt-4"
+              className="mt-4 "
               onClick={() => handleCardClick("Chemical Pathology")}
             >
-              <ImageCard2
-                imageSrc="clinical-icon.png"
-                text="Chemical Pathology"
-                borderColor="border-green-700"
-              />
+                
+
+                    <ImageCard2
+                        imageSrc="clinical-icon.png"
+                        text="Chemical Pathology"
+                        borderColor="border-green-700"
+                        />
+                
             </div>
 
             <div
@@ -187,13 +194,15 @@ export const Home = () => {
           </div>
           {/* ----------------components end */}
 
-          <div className="py-8">
+          <div ref={imageContentRef} className="py-8">
             {clickedCard && <ImageContent testName={clickedCard} />}
           </div>
         </div>
       </div>
 
       {/* ----------------- */}
+
+      {/* mobile test start */}
 
       <div>
         <div className="flex justify-center item-center">
@@ -202,10 +211,10 @@ export const Home = () => {
           </p>
         </div>
 
-        <div className="bg-green-800 flex w-full h-[400px] mt-8"></div>
+        <div className="bg-green-800 flex w-full h-[400px] mt-8 mb-16"></div>
       </div>
 
-      <div class="h-14 bg-gradient-to-r from-green-500 to-blue-500"></div>
+      {/* mobile test end */}
 
       {/* last line */}
     </div>
