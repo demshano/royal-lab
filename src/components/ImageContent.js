@@ -1,11 +1,9 @@
-
-
 export const ImageContent = ({ testName }) => {
-    //   testName  = useParams();
+  //   testName  = useParams();
   // Define content for each type of test
   const testContent = {
     "Chemical Pathology":
-      "Content for Chemical Pathology test...gjrhoi",
+      "Content for Chemical Pathology test...gjrhoigdrrrhrgsgeradrgaerdgsrcdgvrgaercgaercgarrevgrcfrgsrrrvgrsdcadvtvstjdvscbsctvhvhtrscgtjytkdc",
     Haematology: "Content for Haematology test...",
     Microbiology: "Content for Microbiology test...",
     "Flow Cytometry": "content here",

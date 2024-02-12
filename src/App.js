@@ -15,9 +15,10 @@ function App() {
         <Route path="contact" element={<Contact />} />
         <Route path="accreditation" element={<Accreditation />} />
         {/*eslint-disable-next-line  */}
-        <Route path="lab_network" element={<Lab_network />} />
+        <Route path="/lab_network" element={<Lab_network />} />
         {/* eslint-disable-next-line */}
-        <Route path="online_test" element={<Online_test />} />
+        <Route path="/online_test" element={<Online_test />} />
+        {/* <Route path="test/online_test" element={<Online_test />} /> */}
         <Route path="/image-content/:testName" component={ImageContent} />
       </Routes>
         

@@ -11,8 +11,11 @@ export const Header = () => {
   };
 
   return (
-    <div className="header flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-black">
-      <h1 className="text-[#00df9a] w-full text-3xl font-bold mt-0">LOGO.</h1>
+    <div className="header flex justify-between items-center bg-yellow-100 h-24 max-w-[1240px] mx-auto px-4 text-black">
+      {/* <h1 className="text-[#00df9a] w-full text-3xl font-bold mt-0">LOGO.</h1> */}
+      <div className="mt-8">
+        <img src="royal-lab-logo.png" alt="royal-lab-logo" width="280px" />
+      </div>
       <ul className="hidden md:flex cursor-pointer">
         <Link
           to="/"
