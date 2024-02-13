@@ -8,7 +8,7 @@ export const About = () => {
         <p className="sm:text-5xl text-4xl font-bold text-green-800">Royal Labotary</p>
       </div>
 
-      <div className='flex justify-center item-center mx-28 text-xl mt-20 mb-20'>
+      <div className='flex justify-center item-center mx-28 text-xl mt-20 mb-24'>
         <p>"Royal Laboratory Service is a premier medical laboratory service provider that
           offers a wide range of diagnostic and testing services. Our state-of-the-art facilities
           and experienced team of professionals ensure accurate and reliable test results, enabling

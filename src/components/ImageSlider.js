@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 // import SimpleImageSlider from "react-simple-image-slider";
 
 export const ImageSlider = () => {
 
-  const [imageNum, setImageNum] = useState(1);
+  // const [imageNum, setImageNum] = useState(1);
 
 
   return (

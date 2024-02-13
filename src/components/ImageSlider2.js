@@ -16,16 +16,16 @@ export const ImageSlider2 = () => {
     },
 
     {
-      url: 'https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2253&q=80',
+      url: 'image_slide_1.jpg',
     },
     {
-      url: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80',
+      url: 'image_slide_3.jpg',
     },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  
+
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -33,8 +33,8 @@ export const ImageSlider2 = () => {
     }, 3000); // Change slide every 5 seconds
 
     return () => clearInterval(intervalId);
-    
-  }, ); // Run effect whenever currentIndex changes
+
+  },); // Run effect whenever currentIndex changes
 
   const prevSlide = () => {
     const isFirstSlide = currentIndex === 0;
@@ -55,7 +55,7 @@ export const ImageSlider2 = () => {
 
   return (
 
-    <div className='2xl:max-w-[1400px] 2xl:h-[780px] xl:max-w-[1200px] xl:h-[680px] lg:w-[1000px] lg:h-[580px] md:w-[800px] md:h-[480px] sm:w-[600px] sm:h-[380px] w-[400px] h-[280px]  m-auto py-16 px-4 relative group'>
+    <div className='2xl:w-[1500px] 2xl:h-[880px] xl:w-[1200px] xl:h-[680px] lg:w-[1000px] lg:h-[580px] md:w-[800px] md:h-[480px] sm:w-[600px] sm:h-[380px] w-[400px] h-[280px]  m-auto py-16 px-4 relative group'>
       <div
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
         className='w-full h-full rounded-2xl bg-center bg-cover duration-500'

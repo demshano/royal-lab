@@ -1,7 +1,9 @@
 import React from 'react'
 import emailjs from 'emailjs-com';
 import { useRef } from 'react';
-import Snackbar from '@material-ui/core/Snackbar';
+// import Snackbar from '@material-ui/core/Snackbar';
+import Snackbar from '@mui/material/Snackbar';
+
 
 
 export const Careers = () => {
