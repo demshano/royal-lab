@@ -37,7 +37,7 @@ export const Test = () => {
         />
       </div>
 
-      <div className="flex flex-wrap justify-around md:space-x-4   mt-20 md:flex-row md:justify-center lg:flex-row lg:justify-around">
+      <div className="flex flex-wrap md:space-x-8 justify-around mt-16   md:justify-center">
 
         {/* <Link to="/test">
           <ImageCard

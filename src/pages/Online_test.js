@@ -62,25 +62,25 @@ export const Online_test = () => {
       <div className='flex flex-wrap justify-center items-center sm:space-x-20 sm:flex-col-3 sm:space-y-4 mt-16 mb-12'>
 
         <div className='text-center' onClick={toggleModal} >
-          <div className="hover:scale-110 transition-transform duration-300"><img src="hotline_number.png" alt="hot-line Number" width='150px' /></div>
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer "><img src="hotline_number.png" alt="hot-line Number" width='150px' /></div>
           <div><p>Contact Mobile Unit</p></div>
         </div>
 
         {/* Modal */}
         {modalOpen && (
           <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
-            <div className="bg-white py-8 px-32 rounded-lg">
-              <h2 className="text-4xl font-bold mb-4">Contact Numbers</h2>
+            <div className="bg-white md:py-8 md:px-32 sm:py-6 sm:px-20 py-4 px-10 rounded-lg">
+              <h2 className="md:text-4xl sm:text-3xl text-2xl text-center font-bold mb-4">Contact Numbers</h2>
 
 
-              <div className='flex space-x-16'>
-                <p className='text-2xl text-gray-500 font-semibold tracking-widest'>WhatsApp: </p>
-                <p className='text-2xl text-gray-500 font-semibold '>070 796 796 2</p>
+              <div className='flex space-x-4 '>
+                <p className='md:text-2xl sm:text-xl text-sm text-gray-500 ml-[25px] sm:ml-8 md:ml-10 font-semibold tracking-widest'>WhatsApp: </p>
+                <p className='md:text-2xl sm:text-xl text-sm text-gray-500 font-semibold '>070 796 796 2</p>
               </div>
 
               <div className='flex mt-4 space-x-4'>
-                <p className='text-2xl text-gray-500 font-semibold tracking-widest'>Telephone No: </p>
-                <p className='text-2xl text-gray-500 font-semibold '>070 796 796 2</p>
+                <p className='md:text-2xl sm:text-xl text-sm text-gray-500 font-semibold tracking-widest'>Telephone No: </p>
+                <p className='md:text-2xl sm:text-xl text-sm text-gray-500 font-semibold '>070 796 796 2</p>
               </div>
 
 
@@ -97,10 +97,12 @@ export const Online_test = () => {
           </div>
         </div>
 
-        <div className='text-center'>
-          <div className="hover:scale-110 transition-transform duration-300"><img src="submit_inq.png" alt="inquiries" width='150px' /></div>
-          <div>Submit Inquiries</div>
-        </div>
+        <Link to='/contact'>
+          <div className='text-center'>
+            <div className="hover:scale-110 transition-transform duration-300 cursor-pointer"><img src="submit_inq.png" alt="inquiries" width='150px' /></div>
+            <div>Submit Inquiries</div>
+          </div>
+        </Link>
 
       </div>
 

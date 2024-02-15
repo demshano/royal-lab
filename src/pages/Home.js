@@ -1,20 +1,23 @@
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import {
-  ImageSlider2,
-  ImageCard,
-  ImageCard2,
-  ImageContent,
-} from "../components";
-import { Link } from "react-router-dom";
+import { useMediaQuery } from 'react-responsive';
+import { ImageSlider2, ImageCard, ImageCard2, ImageContent } from "../components";
+import { Link, useNavigate } from "react-router-dom";
+import '../styles/home.css';
 export const Home = () => {
+
+  const navigate = useNavigate();
   // State to keep track of the clicked card
   const [clickedCard, setClickedCard] = useState(null);
 
   const imageContentRef = useRef(null);
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' }); // Change the max-width to your desired breakpoint for mobile
 
   const scrollToImageContent = () => {
-    imageContentRef.current.scrollIntoView({ behavior: "smooth" });
+
+    if (isMobile) {
+      imageContentRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+    }
   };
 
   // Function to handle card click
@@ -24,32 +27,22 @@ export const Home = () => {
     console.log("hey");
   };
 
-  //   // Function to render component based on clicked card
-  //   const renderComponent = () => {
-  //     switch (clickedCard) {
-  //       case 'Chemical Pathology':
-  //         return <ImageContent testName='Chemical Pathology' content='Chemicalhrjfgefuyfcgefyefefefurdhebcfeu'/>;
-  //       case 'Haematology':
-  //         return <ImageContent testName='Haematology' content='Haematologyhrjfgefuyfcgefyefefefurdhebcfeu'/>;
-  //       // Add more cases for other card texts as needed
-  //       default:
-  //         return null;
-  //     }
-  //   };
+
 
   return (
-    <div>
+    <div className="wwa">
 
-      <div >
+      <div onClick={() => navigate('/')} className="">
         <ImageSlider2 className="bg-green" />
       </div>
 
-      <div className="flex flex-wrap justify-around mt-20  md:justify-around">
+      <div className="flex flex-wrap md:space-x-8 justify-around mt-16   md:justify-center">
+
         <Link to="test">
           <ImageCard
             imageSrc="test-tube.png"
             text="OUR TESTS"
-            color="bg-green-700"
+            color="bg-sky-700"
           />
         </Link>
 
@@ -57,7 +50,7 @@ export const Home = () => {
           <ImageCard
             imageSrc="book-a-test.png"
             text="BOOK A ONLINE TEST"
-            color="bg-green-600"
+            color="bg-sky-600"
           />
         </Link>
 
@@ -65,7 +58,7 @@ export const Home = () => {
           <ImageCard
             imageSrc="report.png"
             text="ACCREDITATION"
-            color="bg-green-500"
+            color="bg-sky-500"
           />
         </Link>
 
@@ -73,18 +66,18 @@ export const Home = () => {
           <ImageCard
             imageSrc="location.png"
             text="LABORATORY NETWORK"
-            color="bg-green-400"
+            color="bg-sky-400"
           />
         </Link>
       </div>
 
-      <div className="mt-20">
-        <p className="flex justify-center items-center text-5xl font-bold text-green-800">
+      <div className="mt-12">
+        <p className="wwa flex justify-center items-center text-5xl font-bold text-green-800">
           Who We Are
         </p>
 
-        <div className="flex mx-auto max-w-3xl px-4">
-          <p className="text-center font-mono text-slate-500 mt-12">
+        <div className="flex mx-auto max-w-3xl px-4 mt-8">
+          <p className="wwa text-center font-mono text-slate-500 ">
             "Royal Laboratory Service is a premier medical laboratory service provider that offers a
             wide range of diagnostic and testing services. Our state-of-the-art facilities and experienced
             team of professionals ensure accurate and reliable test results, enabling us to provide
@@ -98,109 +91,121 @@ export const Home = () => {
 
       {/* ----------------------------- */}
 
-      <div className="flex justify-center items-center mt-8  bg-gradient-to-r from-green-500 to-blue-500">
-        <div className="relative p-36">
-          {/* <img
-            src="image1_1.jpg"
-            alt="image1"
-            className="w-full h-auto rounded-lg lg:w-[1368px] lg:h-[713px]"
-          /> */}
+      <div className="grid grid-col-3 justify-center items-center mt-8  bg-gradient-to-r from-green-500 to-blue-500">
 
-          {/* <div class="h-14 bg-gradient-to-r from-green-500 to-blue-500"></div> */}
 
-          <div className=" flex ml-[-80px] mt-[-110px] p-4 text-white">
-            <h1 className="text-4xl text-center sm:text-left   font-bold">
-              PATHOLOGY SERVICES
-            </h1>
-          </div>
 
-          {/* -------------------------------components start */}
-
-          <div className="w-full h-full  mt-8 flex flex-wrap  justify-center items-center">
-            <div
-              className="mt-4 "
-              onClick={() => handleCardClick("Chemical Pathology")}
-            >
-              <ImageCard2
-                imageSrc="clinical-icon.png"
-                text="Chemical Pathology"
-                borderColor="border-green-700"
-              />
-            </div>
-
-            <div
-              className="mt-4"
-              onClick={() => handleCardClick("Haematology")}
-            >
-              <ImageCard2
-                imageSrc="test-tube.png"
-                text="Haematology"
-                borderColor="border-green-700"
-              />
-            </div>
-
-            <div
-              className="mt-4"
-              onClick={() => handleCardClick("Flow Cytometry")}
-            >
-              <ImageCard2
-                imageSrc="flow.png"
-                text="Flow Cytometry"
-                borderColor="border-green-700"
-              />
-            </div>
-
-            <div
-              className="mt-4"
-              onClick={() => handleCardClick("Histopathology")}
-            >
-              <ImageCard2
-                imageSrc="histopathology.png"
-                text="Histopathology"
-                borderColor="border-green-700"
-              />
-            </div>
-
-            <div
-              className="mt-4"
-              onClick={() => handleCardClick("Microbiology")}
-            >
-              <ImageCard2
-                imageSrc="microbiology-icon.png"
-                text="Microbiology"
-                borderColor="border-green-700"
-              />
-            </div>
-
-            <div
-              className="mt-4"
-              onClick={() => handleCardClick("Molecular Diagnostics")}
-            >
-              <ImageCard2
-                imageSrc="moleculer.png"
-                text="Molecular Diagnostics"
-                borderColor="border-green-700"
-              />
-            </div>
-
-            <div
-              className="mt-4"
-              onClick={() => handleCardClick("Cytogenetics")}
-            >
-              <ImageCard2
-                imageSrc="cytogenetics.png"
-                text="Cytogenetics"
-                borderColor="border-green-700"
-              />
-            </div>
-          </div>
-          {/* ----------------components end */}
-
-          <div ref={imageContentRef} className="py-8">
-            {clickedCard && <ImageContent testName={clickedCard} />}
-          </div>
+        <div className=" flex p-4 text-black">
+          <h1 className="text-4xl text-center sm:text-left wwa  font-bold">PATHOLOGY SERVICES</h1>
         </div>
+
+        {/* -------------------------------components start */}
+
+        <div className="w-full h-full  mt-8 mb-8 flex flex-wrap  justify-center items-center">
+          <div
+            className="mt-4 "
+            onClick={() => handleCardClick("Chemical Pathology")}
+          >
+            <ImageCard2
+              imageSrc="clinical-icon.png"
+              text="Chemical Pathology"
+              borderColor="border-green-700"
+
+            />
+          </div>
+
+          <div
+            className="mt-4"
+            onClick={() => handleCardClick("Haematology")}
+          >
+            <ImageCard2
+              imageSrc="test-tube.png"
+              text="Haematology"
+              borderColor="border-green-700"
+
+            />
+          </div>
+
+          <div
+            className="mt-4"
+            onClick={() => handleCardClick("Flow Cytometry")}
+          >
+            <ImageCard2
+              imageSrc="flow.png"
+              text="Flow Cytometry"
+              borderColor="border-green-700"
+
+            />
+          </div>
+
+          <div
+            className="mt-4"
+            onClick={() => handleCardClick("Histopathology")}
+          >
+            <ImageCard2
+              imageSrc="histopathology.png"
+              text="Histopathology"
+              borderColor="border-green-700"
+
+            />
+          </div>
+
+          <div
+            className="mt-4"
+            onClick={() => handleCardClick("Microbiology")}
+          >
+            <ImageCard2
+              imageSrc="microbiology-icon.png"
+              text="Microbiology"
+              borderColor="border-green-700"
+
+            />
+          </div>
+
+          <div
+            className="mt-4"
+            onClick={() => handleCardClick("Molecular Diagnostics")}
+          >
+            <ImageCard2
+              imageSrc="moleculer.png"
+              text="Molecular Diagnostics"
+              borderColor="border-green-700"
+
+            />
+          </div>
+
+          <div
+            className="mt-4"
+            onClick={() => handleCardClick("Cytogenetics")}
+          >
+            <ImageCard2
+              imageSrc="cytogenetics.png"
+              text="Cytogenetics"
+              borderColor="border-green-700"
+
+            />
+          </div>
+
+
+
+        </div>
+        {/* ----------------components end */}
+
+
+        {/*---------------- ImageContent */}
+
+        <div ref={imageContentRef} className="text-black w-full mt-4 ">
+          {clickedCard && <ImageContent testName={clickedCard} />}
+        </div>
+
+        {/*---------------- ImageContent */}
+
+
+
       </div>
+
+
+
 
       {/* ----------------- */}
 
@@ -222,28 +227,28 @@ export const Home = () => {
 
           {/* -------grid----1 */}
 
-          <div className="flex flex-col justify-center sm:text-center mt-4 mb-4">
-            <p className="text-3xl sm:text-4xl font-semibold text-sky-400">Royal Lab At Your Door Step</p>
+          <div className="flex flex-col justify-center sm:text-left mt-4 mb-4">
+            <p className="wwa text-3xl sm:text-4xl font-semibold text-sky-400">Royal Lab At Your Door Step</p>
 
             <div className="text-white mt-6 text-xl">
               <p>done? Don't worry. We now collect your blood and </p>
               <p>urine samples right from your home.</p>
             </div>
 
-            <div className="text-white font-semibold mt-6">
-              <button className="px-4 py-2 bg-sky-400 rounded-md">Contact Us</button>
+            <div className="text-white font-semibold flex sm:justify-start justify-center mt-6">
+              <button onClick={() => { navigate('/contact') }} className="px-4 py-2 bg-sky-400 rounded-md">Contact Us</button>
             </div>
 
             <div className="callNumbers  mt-6">
               <p className="text-3xl font-semibold text-sky-400">For Sample Pickup Call:</p>
 
-              <div className="flex justify-center item-center mt-8">
-                <img src="whatsApp-bg_green.png" alt="whatsApp-logo" width="30px" />
+              <div className="flex sm:justify-start justify-center item-center mt-8">
+                <img src="whatsApp-3.png" alt="whatsApp-logo" width="30px" />
                 <p className="ml-2 text-2xl text-white font-bold">070 796 796 2</p>
               </div>
 
-              <div className="flex justify-center item-center mt-2">
-                <img src="call_bg_green.png" alt="calling-logo" width="30px" />
+              <div className="flex sm:justify-start sm:ml-0 ml-[-13px] justify-center  item-center mt-2">
+                <img src="call-3.png" alt="calling-logo" width="30px" />
                 <p className="ml-2 text-2xl text-white font-bold">063 31 31 797</p>
               </div>
 
