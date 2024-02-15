@@ -21,3 +21,19 @@
   color: #555; /* Adjust link color on hover as needed */
   transform: scale(1.1); /* Scale the link on hover */
 }
+
+/* Add this CSS code to your header.css file */
+
+/* Updated transition properties for smoother animation */
+.mobile-menu {
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu-open {
+  transform: translateX(0%);
+}
+
+.menu-closed {
+  transform: translateX(-100%);
+}
+

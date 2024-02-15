@@ -91,7 +91,7 @@ export const Home = () => {
 
       {/* ----------------------------- */}
 
-      <div className="grid grid-col-3 justify-center items-center mt-8  bg-gradient-to-r from-green-500 to-blue-500">
+      <div className=" mt-8  bg-gradient-to-r from-green-500 to-blue-500">
 
 
 
@@ -101,7 +101,7 @@ export const Home = () => {
 
         {/* -------------------------------components start */}
 
-        <div className="w-full h-full  mt-8 mb-8 flex flex-wrap  justify-center items-center">
+        <div className="mt-8 mb-8 flex flex-wrap  justify-center items-center">
           <div
             className="mt-4 "
             onClick={() => handleCardClick("Chemical Pathology")}

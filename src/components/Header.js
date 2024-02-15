@@ -10,6 +10,10 @@ export const Header = () => {
     setNav(!nav);
   };
 
+  const handleLinkClick = () => {
+    setNav(false); // Close the mobile menu when a link is clicked
+  };
+
   return (
     <div className="header flex justify-between items-center  h-24 max-w-[1240px] mx-auto px-4 text-black">
       {/* <h1 className="text-[#00df9a] w-full text-3xl font-bold mt-0">LOGO.</h1> */}
@@ -56,14 +60,15 @@ export const Header = () => {
       </div>
 
       <div
-        className={
-          nav
-            ? "fixed left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#ffffff] ease-in-out duration-300 z-50"
-            : "fixed left-[-100%] "
-        }
+        className={`mobile-menu fixed top-0 h-full border-r border-gray-900 bg-[#ffffff] ease-in-out duration-300 z-50 ${nav ? "menu-open" : "menu-closed"}`}
+
       >
         <h1 className="text-[#00df9a] w-full text-3xl font-bold m-4 mt-8">
-          LOGO.
+        <Link to='/'>
+        <div className="mt-8">
+          <img src="royal-lab-logo.png" alt="royal-lab-logo" width="280px" />
+        </div>
+      </Link>
         </h1>
 
         <ul className="p-4 mt-8 uppercase cursor-pointer">
@@ -71,6 +76,7 @@ export const Header = () => {
             <Link
               to="/"
               className="p-4 text-black hover:text-[#00df9a] transition-all duration-300 "
+              onClick={handleLinkClick}
             >
               Home
             </Link>
@@ -79,6 +85,7 @@ export const Header = () => {
             <Link
               to="test"
               className="p-4 text-black hover:text-[#00df9a] transition-all duration-300 hover:scale-105"
+              onClick={handleLinkClick}
             >
               Our Test
             </Link>
@@ -87,6 +94,7 @@ export const Header = () => {
             <Link
               to="careers"
               className="p-4 text-black hover:text-[#00df9a] transition-all duration-300 hover:scale-105"
+              onClick={handleLinkClick}
             >
               Careers
             </Link>
@@ -95,6 +103,7 @@ export const Header = () => {
             <Link
               to="about"
               className="p-4 text-black hover:text-[#00df9a] transition-all duration-300 hover:scale-105"
+              onClick={handleLinkClick}
             >
               About Us
             </Link>
@@ -103,6 +112,7 @@ export const Header = () => {
             <Link
               to="contact"
               className="p-4 text-black hover:text-[#00df9a] transition-all duration-300 hover:scale-105"
+              onClick={handleLinkClick}
             >
               Contact Us
             </Link>
