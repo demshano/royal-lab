@@ -3,25 +3,92 @@ import { Link } from "react-router-dom";
 import { ImageCard, TestComponent } from "../components";
 
 export const Test = () => {
+
+
+
+
   // Define the list of tests
   const [tests] = useState([
-    { testName: "aluminium", testCode: "T001" },
-    { testName: "copper", testCode: "T002" },
-    { testName: "zink", testCode: "T003" },
-    { testName: "zinkobolt", testCode: "T004" },
-    { testName: "uria", testCode: "T005" },
-    // Add more tests as needed
+    { testName: "ALBUMIN SERUM", testCode: "ALB" },
+    { testName: "ALKALINE PHOSPHATE", testCode: "ALP" },
+    { testName: "ASOT", testCode: "ASOT" },
+    { testName: "BILIRUBIN TOTAL", testCode: "T BIL" },
+    { testName: "BILIRUBIN DIRECT", testCode: "D BIL" },
+    { testName: "BILIRUBIN INDIRECT", testCode: "ID BIL" },
+    { testName: "BLOOD GROUPING & RH", testCode: "BGRH" },
+    { testName: "BLOOD SUGAR SERIES (4 BSS)", testCode: "4 BSS" },
+    { testName: "BLOOD SUGAR (FBS)", testCode: "FBS" },
+    { testName: "BLOOD SUGAR (RBS)", testCode: "RBS" },
+    { testName: "BLOOD SUGAR (PPBS)", testCode: "PPBS" },
+    { testName: "BLOOD SUGAR (OGTT)", testCode: "OGTT" },
+    { testName: "BLOOD UREA", testCode: "BU" },
+    { testName: "CALCIUM TOTAL", testCode: "CALCIUM" },
+    { testName: "CHOLESTEROL TOTAL", testCode: "TC" },
+    { testName: "CREATIVE PROTEIN", testCode: "CRP" },
+    { testName: "CREATININE", testCode: "CREATININE" },
+    { testName: "DENGUE ANTIBODY", testCode: "DENGUE AB" },
+    { testName: "DENGUE NS 1 ANTIGEN", testCode: "DENGUE NS1" },
+    { testName: "DIFFERENTIAL COUNT", testCode: "DC" },
+    { testName: "EGFR", testCode: "EGFR" },
+    { testName: "ELECTROLYTES (Na,K,Cl)", testCode: "Na,K,Cl" },
+    { testName: "ESR", testCode: "ESR" },
+    { testName: "FULL BLOOD COUNT", testCode: "FBC" },
+    { testName: "GAMMA GT", testCode: "GGT" },
+    { testName: "HAEMOGLOBIN", testCode: "HB" },
+    { testName: "HBA1C", testCode: "HBA1C" },
+    { testName: "HCG (URINE)", testCode: "HCG" },
+    { testName: "HEPATITIS ANTIGEN (HBsAg)", testCode: "HBsAg" },
+    { testName: "HEPATITIS C ANTIBODY (HCV)", testCode: "HCV" },
+    { testName: "LIPID PROFILE", testCode: "LP" },
+    { testName: "LIVER PROFILE", testCode: "LIVER" },
+    { testName: "MALARIA PARASITE PCV/HCT", testCode: "MALARIA" },
+    { testName: "PLATELET COUNT", testCode: "PLATELET" },
+    { testName: "TOTAL PROTEIN", testCode: "TP" },
+    { testName: "PHOSPHORUS", testCode: "PHOSPHORUS" },
+    { testName: "RENAL PROFILE -1/RFT (BU/CRE)", testCode: "RENAL-1" },
+    { testName: "RENAL PROFILE-2/RFT", testCode: "RENAL-2" },
+    { testName: "RHEUMATOID FACTOR (RF)", testCode: "RF" },
+    { testName: "SEMEN ANALYSIS", testCode: "SEMEN" },
+    { testName: "SGOT (AST)", testCode: "SGOT" },
+    { testName: "SGPT (ALT)", testCode: "SGPT" },
+    { testName: "STOOL FULL REPORT", testCode: "STOOL" },
+    { testName: "STOOL OCULT BLOOD", testCode: "STOOL BLOOD" },
+    { testName: "TROPONIN I", testCode: "TROPONIN" },
+    { testName: "TSH", testCode: "TSH" },
+    { testName: "T3/T4", testCode: "T3/T4" },
+    { testName: "TSH/T3/T4", testCode: "TSH/T3/T4" },
+    { testName: "WBC/DC", testCode: "WBC/DC" },
+    { testName: "URIC ACID", testCode: "URIC ACID" },
+    { testName: "URINE FULL REPORT (UFR)", testCode: "UFR" },
   ]);
 
-  // State to store the search query
+
+  const [expanded, setExpanded] = useState(false);
+
+  // Chunk the tests into groups of 7
+  const chunkedTests = tests.reduce((acc, curr, index) => {
+    const chunkIndex = Math.floor(index / 7);
+    if (!acc[chunkIndex]) {
+      acc[chunkIndex] = [];
+    }
+    acc[chunkIndex].push(curr);
+    return acc;
+  }, []);
+
+  const [displayedChunkIndex, setDisplayedChunkIndex] = useState(0);
+
+  const handleShowMoreTests = () => {
+    setDisplayedChunkIndex((prevIndex) => prevIndex + 1);
+  };
+
+
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Function to handle search query change
+
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
 
-  // Filter the tests based on the search query
   const filteredTests = tests.filter((test) =>
     test.testName.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -83,7 +150,7 @@ export const Test = () => {
           placeholder="Search tests..."
           value={searchQuery}
           onChange={handleSearchChange}
-          className="w-[600px] p-4 border-b-2 border-green-500 focus:border-green-500 outline-none"
+          className="w-[300px] sm:w-[400px] md:w-[600px] p-4 border-b-2 border-green-500 focus:border-green-500 outline-none"
         />
       </div>
       {/* -------search bar end */}
@@ -96,16 +163,26 @@ export const Test = () => {
 
       {/* ----------------test components start */}
 
-      <div className="space-y-4 flex flex-col mt-8 mb-8 justify-center items-center">
-        {/* Display filtered tests */}
-        {filteredTests.map((test, index) => (
-          <TestComponent
-            key={index}
-            testName={test.testName}
-            testCode={test.testCode}
-            className=""
-          />
-        ))}
+      <div>
+        <div className="space-y-4 flex flex-col mt-8 mb-8 justify-center items-center">
+          {/* Display the currently selected chunk of tests */}
+          {chunkedTests[displayedChunkIndex].map((test, index) => (
+            <TestComponent
+              key={index}
+              testName={test.testName}
+              testCode={test.testCode}
+            />
+          ))}
+          {/* Display "Show more tests" button if there are more chunks available */}
+          {displayedChunkIndex < chunkedTests.length - 1 && (
+            <div
+              className="cursor-pointer"
+              onClick={handleShowMoreTests}
+            >
+              Show more tests
+            </div>
+          )}
+        </div>
       </div>
 
       {/* ----------------test components start */}
