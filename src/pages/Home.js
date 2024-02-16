@@ -30,7 +30,7 @@ export const Home = () => {
 
 
   return (
-    <div className="wwa ml-0">
+    <div className="wwa ml-0 overflow-x-hidden">
 
       <div onClick={() => navigate('/')} className="">
         <ImageSlider2 className="bg-green" />
