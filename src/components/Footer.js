@@ -21,16 +21,16 @@ export const Footer = () => {
             </div>
 
 
-            <div className="sm:ml-4 space-x-7 ml-8">
+            <div className="space-x-7 flex-col">
 
-              <div className=" text-gray-400 flex">
-                <p className="sm:text-base text-xs">WhatsApp : </p>
-                <p className="sm:text-base text-xs mx-2">+94 70 796 796 2</p>
+              <div className=" text-gray-400  flex">
+                <p className="text-xs">WhatsApp : </p>
+                <p className="text-xs mx-2">+94 70 796 796 2</p>
               </div>
 
-              <div className=" text-gray-400 flex mt-2  ">
-                <p className="sm:text-base text-xs sm:ml-2 ml-0">Tel No : </p>
-                <p className="sm:text-base text-xs mx-2">+94 70 796 796 2</p>
+              <div className=" text-gray-400  flex mt-2  ">
+                <p className="text-xs sm:ml-2 ml-0">Tel No : </p>
+                <p className="text-xs mx-2">+94 70 796 796 2</p>
               </div>
 
             </div>

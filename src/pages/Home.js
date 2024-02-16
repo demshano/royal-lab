@@ -30,7 +30,7 @@ export const Home = () => {
 
 
   return (
-    <div className="wwa">
+    <div className="wwa ml-0">
 
       <div onClick={() => navigate('/')} className="">
         <ImageSlider2 className="bg-green" />

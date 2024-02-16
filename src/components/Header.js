@@ -22,7 +22,7 @@ export const Header = () => {
           <img src="royal-lab-logo.png" alt="royal-lab-logo" width="280px" />
         </div>
       </Link>
-      
+
       <ul className="hidden md:flex cursor-pointer">
         <Link
           to="/"
@@ -60,15 +60,15 @@ export const Header = () => {
       </div>
 
       <div
-        className={`mobile-menu fixed top-0 h-full border-r border-gray-900 bg-[#ffffff] ease-in-out duration-300 z-50 ${nav ? "menu-open" : "menu-closed"}`}
+        className={`mobile-menu fixed top-0 left-0 h-full w-full  border-r border-gray-900 bg-[#f49191] ease-in-out duration-300 z-50 ${nav ? "menu-open" : "menu-closed"}`}
 
       >
-        <h1 className="text-[#00df9a] w-full text-3xl font-bold m-4 mt-8">
-        <Link to='/'>
-        <div className="mt-8">
-          <img src="royal-lab-logo.png" alt="royal-lab-logo" width="280px" />
-        </div>
-      </Link>
+        <h1 className="text-[#00df9a] text-3xl font-bold m-4 mt-8">
+          <Link to='/'>
+            <div className="mt-8">
+              <img src="royal-lab-logo.png" alt="royal-lab-logo" width="280px" />
+            </div>
+          </Link>
         </h1>
 
         <ul className="p-4 mt-8 uppercase cursor-pointer">
