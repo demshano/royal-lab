@@ -63,7 +63,7 @@ export const Test = () => {
   ]);
 
 
-  const [expanded, setExpanded] = useState(false);
+  // const [expanded, setExpanded] = useState(false);
 
   // Chunk the tests into groups of 7
   const chunkedTests = tests.reduce((acc, curr, index) => {
@@ -89,6 +89,7 @@ export const Test = () => {
     setSearchQuery(event.target.value);
   };
 
+{/*eslint-disable-next-line  */}
   const filteredTests = tests.filter((test) =>
     test.testName.toLowerCase().includes(searchQuery.toLowerCase())
   );
