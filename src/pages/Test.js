@@ -89,7 +89,7 @@ export const Test = () => {
     setSearchQuery(event.target.value);
   };
 
-{/*eslint-disable-next-line  */}
+/*eslint-disable-next-line  */
   const filteredTests = tests.filter((test) =>
     test.testName.toLowerCase().includes(searchQuery.toLowerCase())
   );
