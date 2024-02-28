@@ -1,10 +1,26 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useMediaQuery } from 'react-responsive';
 import { ImageSlider2, ImageCard, ImageCard2, ImageContent } from "../components";
 import { Link, useNavigate } from "react-router-dom";
 import '../styles/home.css';
 export const Home = () => {
+
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const image = document.getElementById('target-image');
+      if (image) {
+        const { top } = image.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        setIsVisible(top < windowHeight);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navigate = useNavigate();
   // State to keep track of the clicked card
@@ -260,13 +276,18 @@ export const Home = () => {
           {/* -grid-2 */}
 
           <motion.div
-            initial={{ x: '100vw' }} // initial position (off screen to the left)
-            animate={{ x: 0 }} // animate to the original position (0)
-            transition={{ type: 'spring', duration: 2 }} // spring animation with a duration of 2 seconds
-            className="w-full  pl-4 mx-auto mb-4"
-          >
-            <img src="online_test_2.png" alt="online-test-logo" className="w-[900px]" />
-          </motion.div>
+      initial={{ x: '100vw' }}
+      animate={isVisible ? { x: 0 } : { x: '100vw' }}
+      transition={{ type: 'spring', duration: 2 }}
+      className="w-full pl-4 mx-auto mb-4"
+    >
+      <img
+        id="target-image"
+        src="online_test_2.png"
+        alt="online-test-logo"
+        className="w-[900px]"
+      />
+    </motion.div>
 
           {/* -grid-2 */}
 
