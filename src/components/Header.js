@@ -60,7 +60,7 @@ export const Header = () => {
       </div>
 
       <div
-        className={`mobile-menu fixed top-0 left-0 h-full w-full  border-r border-gray-900 bg-[#f49191] ease-in-out duration-300 z-50 ${nav ? "menu-open" : "menu-closed"}`}
+        className={`mobile-menu fixed top-0 left-0 h-full w-full  border-r border-gray-900 bg-[#f1eded] ease-in-out duration-300 z-50 ${nav ? "menu-open" : "menu-closed"}`}
 
       >
         <h1 className="text-[#00df9a] text-3xl font-bold m-4 mt-8">

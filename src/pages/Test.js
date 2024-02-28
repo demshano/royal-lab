@@ -63,37 +63,34 @@ export const Test = () => {
   ]);
 
 
-  // const [expanded, setExpanded] = useState(false);
-
-  // Chunk the tests into groups of 7
-  const chunkedTests = tests.reduce((acc, curr, index) => {
-    const chunkIndex = Math.floor(index / 7);
-    if (!acc[chunkIndex]) {
-      acc[chunkIndex] = [];
-    }
-    acc[chunkIndex].push(curr);
-    return acc;
-  }, []);
-
-  const [displayedChunkIndex, setDisplayedChunkIndex] = useState(0);
-
-  const handleShowMoreTests = () => {
-    setDisplayedChunkIndex((prevIndex) => prevIndex + 1);
-  };
 
 
-  const [searchQuery, setSearchQuery] = useState("");
+ // Chunk the tests into groups of 7
+ const chunkedTests = tests.reduce((acc, curr, index) => {
+  const chunkIndex = Math.floor(index / 7);
+  if (!acc[chunkIndex]) {
+    acc[chunkIndex] = [];
+  }
+  acc[chunkIndex].push(curr);
+  return acc;
+}, []);
 
+const [displayedChunkIndex, setDisplayedChunkIndex] = useState(0);
 
-  const handleSearchChange = (event) => {
-    setSearchQuery(event.target.value);
-  };
+const handleShowMoreTests = () => {
+  setDisplayedChunkIndex((prevIndex) => prevIndex + 1);
+};
 
-/*eslint-disable-next-line  */
-  const filteredTests = tests.filter((test) =>
-    test.testName.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+const [searchQuery, setSearchQuery] = useState("");
 
+const handleSearchChange = (event) => {
+  setSearchQuery(event.target.value);
+};
+
+// Filter the tests based on the search query from the currently displayed chunk
+const filteredTests = chunkedTests[displayedChunkIndex].filter((test) =>
+  test.testName.toLowerCase().includes(searchQuery.toLowerCase())
+);
   return (
     <div className="">
 
@@ -167,7 +164,7 @@ export const Test = () => {
       <div>
         <div className="space-y-4 flex flex-col mt-8 mb-8 justify-center items-center">
           {/* Display the currently selected chunk of tests */}
-          {chunkedTests[displayedChunkIndex].map((test, index) => (
+          {filteredTests.map((test, index) => (
             <TestComponent
               key={index}
               testName={test.testName}

@@ -39,7 +39,7 @@ export const Careers = () => {
   return (
     <main>
 
-      <div className="mt-16" style={{ maxWidth: "100%" }}>
+      <div className="mt-4" style={{ maxWidth: "100%" }}>
         <img
           src="image_slide_3.jpg"
           alt="lab technician"
@@ -53,7 +53,7 @@ export const Careers = () => {
 
       {/* -------start----grid */}
 
-      <div className="max-w-[1240px] mx-auto grid md:grid-cols-2 mb-16">
+      <div className="max-w-[1240px] mx-auto grid md:grid-cols-2 mt-[-75px] mb-4">
 
 
         <div className="flex justify-center items-center h-screen ">
@@ -98,7 +98,7 @@ export const Careers = () => {
 
         {/* grid----2 */}
 
-        <div className=' flex flex-col justify-center item-center space-y-8'>
+        <div className=' flex flex-col justify-center item-center mt-[-40px] space-y-8'>
 
           <div className=' py-8 mx-20 rounded-lg shadow-xl'>
 

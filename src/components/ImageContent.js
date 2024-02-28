@@ -19,9 +19,9 @@ export const ImageContent = ({ testName }) => {
 
   return (
 
-    <div className="bg-gray-200 flex flex-wrap p-8 px-32">
-      <h2 className="text-2xl font-bold mb-4 text-center">{testName}</h2>
-      <p className="text-center">{content}</p>
+    <div className="bg-gray-200 flex-col mx-8 mb-4 rounded-lg">
+      <h2 className="text-2xl font-bold mb-4 text-center mt-4">{testName}</h2>
+      <p className="text-center mx-4 mb-4">{content}</p>
     </div>
 
     //
