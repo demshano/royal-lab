@@ -36,7 +36,7 @@ export const Home = () => {
         <ImageSlider2 className="bg-green" />
       </div>
 
-      <div className="flex flex-wrap md:space-x-8 justify-around mt-16   md:justify-center">
+      <div className="flex flex-wrap sm:space-x-8 justify-around mt-16   sm:justify-center">
 
         <Link to="test">
           <ImageCard
@@ -91,7 +91,7 @@ export const Home = () => {
 
       {/* ----------------------------- */}
 
-      <div className=" mt-8  bg-gradient-to-r from-green-500 to-blue-500">
+      <div className=" mt-8  bg-gradient-to-r from-green-500 to-blue-500 ">
 
 
 
@@ -101,7 +101,7 @@ export const Home = () => {
 
         {/* -------------------------------components start */}
 
-        <div className="mt-8 mb-8 flex flex-wrap  justify-center items-center">
+        <div className=" flex flex-wrap  justify-center items-center pb-4">
           <div
             className="mt-4 "
             onClick={() => handleCardClick("Chemical Pathology")}

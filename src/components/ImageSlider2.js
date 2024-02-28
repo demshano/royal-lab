@@ -55,7 +55,7 @@ export const ImageSlider2 = () => {
 
   return (
 
-    <div className='2xl:w-[1500px] 2xl:h-[880px] xl:w-[1200px] xl:h-[680px] lg:w-[1000px] lg:h-[580px] md:w-[800px] md:h-[480px] sm:w-[600px] sm:h-[380px] w-[400px] h-[280px]  m-auto py-8 px-4 relative group'>
+    <div className='flex-col justify-center 2xl:w-[1500px] 2xl:h-[880px] xl:w-[1200px] xl:h-[680px] lg:w-[1000px] lg:h-[580px] md:w-[800px] md:h-[480px] sm:w-[600px] sm:h-[380px] w-[360px] h-[280px]  m-auto py-8 px-4  '>
       <div
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
         className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
